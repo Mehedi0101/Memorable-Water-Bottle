@@ -36,6 +36,7 @@
     font-weight: bold;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .cart-buttons button:first-child{
@@ -46,3 +47,12 @@
     border-left: 1px solid black;
 }
 
+/* media queries */
+/* tablet */
+@media screen and (max-width:768px) {
+    
+}
+
+@media screen and (max-width:425px) {
+    
+}

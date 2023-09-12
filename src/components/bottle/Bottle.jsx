@@ -12,7 +12,7 @@ const Bottle = ({bottle}) => {
                 <img className='card-img' src={img} alt="" />
             </div>
             <h3 className='price'>Price: ${price}</h3>
-            <div class='cart-buttons'>
+            <div className='cart-buttons'>
                 <button>+</button>
                 <p>Add To Cart</p>
                 <button>-</button>
