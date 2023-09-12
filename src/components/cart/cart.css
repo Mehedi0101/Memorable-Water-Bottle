@@ -1,0 +1,14 @@
+.cart-item{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+}
+
+.total-price{
+    margin-top: 10px;
+    text-align: center;
+}

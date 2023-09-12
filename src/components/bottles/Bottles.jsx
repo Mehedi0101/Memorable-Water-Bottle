@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import Proptypes from "prop-types";
 import Bottle from "../bottle/Bottle";
 import './bottles.css'
 
-const Bottles = () => {
+const Bottles = ({addedItems,setAddedItems}) => {
     const [bottles, setBottles] = useState([]);
 
     useEffect( () => {
@@ -12,13 +13,16 @@ const Bottles = () => {
         .then( data => setBottles(data))
     }, [])
 
-    console.log(bottles);
-
     return (
         <div className="bottle-container">
-            {bottles.map( bottle => <Bottle key={bottle.id} bottle={bottle}></Bottle>)}
+            {bottles.map( bottle => <Bottle key={bottle.id} bottle={bottle} addedItems={addedItems} setAddedItems={setAddedItems}></Bottle>)}
         </div>
     );
 };
+
+Bottles.propTypes = {
+    addedItems: Proptypes.array.isRequired,
+    setAddedItems: Proptypes.func.isRequired
+}
 
 export default Bottles;

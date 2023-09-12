@@ -1,9 +1,17 @@
 import Proptypes from 'prop-types'
 import './bottle.css'
 
-const Bottle = ({bottle}) => {
+const Bottle = ({bottle, addedItems, setAddedItems}) => {
 
     const  {name, img, price} = bottle;
+
+    const adding = (bottle) => {
+        setAddedItems([...addedItems, bottle]);
+    }
+
+    const removing = (id) => {
+        setAddedItems(addedItems.filter(item => item.id !== id))
+    }
 
     return (
         <div className='bottle'>
@@ -13,16 +21,18 @@ const Bottle = ({bottle}) => {
             </div>
             <h3 className='price'>Price: ${price}</h3>
             <div className='cart-buttons'>
-                <button>+</button>
+                <button onClick={() => {adding(bottle)}}>+</button>
                 <p>Add To Cart</p>
-                <button>-</button>
+                <button onClick={() => {removing(bottle.id)}}>-</button>
             </div>
         </div>
     );
 };
 
 Bottle.propTypes = {
-    bottle: Proptypes.object.isRequired
+    bottle: Proptypes.object.isRequired,
+    addedItems: Proptypes.array.isRequired,
+    setAddedItems: Proptypes.func.isRequired
 }
 
 export default Bottle;
