@@ -1,8 +1,9 @@
 import Proptypes from 'prop-types';
 import CartProducts from '../cart-products/CartProducts';
-import './cart.css'
+import './cart.css';
 
 const Cart = ({addedItems}) => {
+
     return (
         <div>
             <div className="cart-item">

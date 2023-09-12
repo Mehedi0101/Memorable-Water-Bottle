@@ -1,5 +1,6 @@
 import Proptypes from 'prop-types'
 import './bottle.css'
+import { addDataToStorage, removeDataFromStorage } from '../../utils/localStorageFunctionalities';
 
 const Bottle = ({bottle, addedItems, setAddedItems}) => {
 
@@ -7,10 +8,12 @@ const Bottle = ({bottle, addedItems, setAddedItems}) => {
 
     const adding = (bottle) => {
         setAddedItems([...addedItems, bottle]);
+        addDataToStorage(bottle.id);
     }
 
     const removing = (id) => {
         setAddedItems(addedItems.filter(item => item.id !== id))
+        removeDataFromStorage(bottle.id);
     }
 
     return (

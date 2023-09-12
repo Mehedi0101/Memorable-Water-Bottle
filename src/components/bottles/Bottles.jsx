@@ -3,6 +3,7 @@ import { useState } from "react";
 import Proptypes from "prop-types";
 import Bottle from "../bottle/Bottle";
 import './bottles.css'
+import { getDatafromStorage } from "../../utils/localStorageFunctionalities";
 
 const Bottles = ({addedItems,setAddedItems}) => {
     const [bottles, setBottles] = useState([]);
@@ -12,6 +13,21 @@ const Bottles = ({addedItems,setAddedItems}) => {
         .then( response => response.json())
         .then( data => setBottles(data))
     }, [])
+
+    useEffect ( () => {
+        const storedId = getDatafromStorage();
+        const storedData = [];
+        
+
+        for( const id of storedId ){
+            const item = bottles.find( bottle => bottle.id === id);
+            item && storedData.push(item);
+        }
+
+        setAddedItems(storedData);
+        console.log('yee');
+
+    }, [bottles,setAddedItems] )
 
     return (
         <div className="bottle-container">
